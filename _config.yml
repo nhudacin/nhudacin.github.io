@@ -1,0 +1,22 @@
+# Permalinks
+#
+# Use of `relative_permalinks` ensures post links from the index work properly.
+permalink:           pretty
+relative_permalinks: true
+
+# Setup
+title:               Nick Hudacin
+tagline:             'Automation Domination'
+description:         'Another blog in the sea'
+url:                 http://nhudacin.github.io
+baseurl:             ''
+paginate:            5
+
+# About/contact
+author:
+  name:              Nick Hudacin
+  url:               https://twitter.com/nhudacin
+  email:             nhudacin@outlook.com
+
+# Custom vars
+version:             1.0.0
