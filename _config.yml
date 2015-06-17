@@ -6,8 +6,8 @@ relative_permalinks: true
 
 # Setup
 title:               Nick Hudacin
-tagline:             'Automation Domination'
-description:         'Another blog in the sea'
+tagline:             'Windows Devop-ing in a Linux World'
+description:         'A random collection of code, life, and philosophy.'
 url:                 http://nhudacin.github.io
 baseurl:             ''
 paginate:            5
