@@ -65,3 +65,55 @@ Run the script:
 PS Z:\> topLevelFunction
 The value of the variable: Regular Variable Defined In Module
 ```
+
+## Example 2
+Interestingly, I can declare a variable in the top most function and then each of the descendents of that function can access the value in that variable. I thought according to BOL that this only worked for one child below but that's not the case as show below.
+
+```powershell
+function topLevelFunction{
+
+    $regularVariable_DefinedInFunction = 'Regular Variable'
+
+    childFunction
+
+}
+
+function childFunction{
+    if (! $regularVariable_DefinedInFunction) { Write-Host "Child Function: No Variable Found"}
+    else {   Write-Host "Child Function: The value of the variable: $regularVariable_DefinedInFunction " }
+
+    grandChildFunction
+
+}
+
+function grandChildFunction {
+
+    if (! $regularVariable_DefinedInFunction) { Write-Host "Grandchild Function: No Variable Found"}
+    else {   Write-Host "Grandchild Function: The value of the variable: $regularVariable_DefinedInFunction " }
+
+    greatGrandChildFunction
+}
+
+function greatGrandChildFunction {
+    if (! $regularVariable_DefinedInFunction) { Write-Host "Great Grandchild Function: No Variable Found"}
+    else {   Write-Host "Great Grandchild Function: The value of the variable: $regularVariable_DefinedInFunction " }
+}
+
+Export-ModuleMember topLevelFunction
+
+```
+
+Save and import function (don't forget the "-force")
+
+```powershell
+PS Z:\> Import-Module -Name Testing -Force
+```
+
+Results
+
+```powershell
+PS Z:\> topLevelFunction
+Child Function: The value of the variable: Regular Variable
+Grandchild Function: The value of the variable: Regular Variable
+Great Grandchild Function: The value of the variable: Regular Variable
+```
