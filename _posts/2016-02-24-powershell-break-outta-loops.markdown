@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "POWERSHELL - BREAK OUTTA LOOPS!"
+title:  "Powershell - Break Out of Loops!"
 date:   2016-02-02 00:00:00 -0600
 categories: powershell
 ---
